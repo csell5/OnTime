@@ -18,6 +18,7 @@
       <VisualElements DisplayName="On Time" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="SpeakerBuddy" ForegroundText="dark" BackgroundColor="#FFFFFF">
         <DefaultTile ShowName="allLogos" WideLogo="images\widelogo.png" />
         <SplashScreen Image="images\splashscreen.png" BackgroundColor="#FFFFFF" />
+
       </VisualElements>
     </Application>
   </Applications>
