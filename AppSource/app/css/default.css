@@ -1,0 +1,92 @@
+﻿@font-face {
+  font-family: 'FontAwesome';
+  src: url('/fonts/fontawesome-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+    font-size: 72pt;
+    text-transform: lowercase;
+    font-weight: normal;
+    
+    font-family: "Segoe UI";
+}
+
+#body {
+    height: 100%;
+    width: 100%;
+	
+	display: -ms-grid;
+    -ms-grid-columns: 120px 1fr 120px;
+    -ms-grid-rows: 100px 2fr 1fr 25px;
+	
+}
+
+#timeLeft {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    
+    font-size: 325%;
+}
+
+#next {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+	-ms-grid-column-span: 3;
+	
+    display: -ms-grid;
+    -ms-grid-columns: 75px 1fr 1fr 75px;
+    -ms-grid-rows: 1fr;
+
+    font-size: 100%;
+}
+
+#topic {
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+
+	text-align: left;
+}
+
+#timeLeftTillNext {
+    -ms-grid-column: 3;
+    -ms-grid-row: 1;
+	text-align: right;
+}
+
+.redBackground {
+    color: white;
+    background-color: red;
+}
+
+.hidden {
+  opacity: 0;
+	display:  none;
+	position: relative;
+	z-index:  -1000;
+}
+
+[class^="icon-"] {
+	font-size: 300pt;
+	color: rgba(29, 138, 35, 0.85);
+
+}
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}   
+
+@media screen and (-ms-view-state: snapped) {
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+}
+
+
