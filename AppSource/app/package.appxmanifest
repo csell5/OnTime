@@ -15,8 +15,8 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <VisualElements DisplayName="On Time" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="SpeakerBuddy" ForegroundText="light" BackgroundColor="#464646">
-        <DefaultTile ShowName="allLogos" />
+      <VisualElements DisplayName="On Time" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="SpeakerBuddy" ForegroundText="light" BackgroundColor="#ffffff">
+        <DefaultTile ShowName="noLogos" WideLogo="images\widelogo.png" ShortName="On time" />
         <SplashScreen Image="images\splashscreen.png" />
       </VisualElements>
     </Application>
