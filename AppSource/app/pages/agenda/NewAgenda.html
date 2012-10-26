@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Agenda</title>
+
+        <script src="/pages/agenda/newAgenda.js"></script>
+    </head>
+    <body>
+
+        <script type="text/html" id="agendaItem-Template">
+            <div>
+                <input type="text" id="agendaItemTitle" 
+                    data-bind="attr: { value: agendaItemTitle }"/>
+                
+                <input type="text" id="agendaItemDuration" 
+                    data-bind="attr: { value: agendaItemDuration }"/> 
+            </div>
+        </script>
+        
+        <div id="agendaItems" 
+            data-bind="template: { name: 'agendaItem-Template', data: agendaItems }">
+        </div>
+
+        <div>
+            <button id="addAgendaItem" 
+                data-bind="click: addAgendaItem">add to agenda</button>
+        </div>
+    </body>
+</html>

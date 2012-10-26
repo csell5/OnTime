@@ -14,7 +14,7 @@
     var _sampleAgenda = sampleSession.getSample();
 
     //Timers
-    var _duration, _min, _sec, _countdownTimer, _countUpTimer, _interval = 1000;
+    var _duration, _min, _sec, _agendaSec, _agendaMin, _countdownTimer, _countUpTimer, _interval = 1000;
 
     //Displays
     var _dispRequest;
@@ -65,7 +65,7 @@
 
     function countdown() {
         _sec--;
-        
+
         if (_sec === -1) {
             if (_min === 15 || _min === 10) {
                 document.getElementById("body").classList.add("redBackground");
@@ -89,6 +89,24 @@
         }
 
         viewModel.countdown(_getTime());
+    }
+
+    function agendaCountdown() {
+        _agendaSec--;
+
+        if (_agendaSec === -1) {
+            _agendaSec = 59;
+            _agendaMin = _agendaMin - 1;
+        }
+
+        viewModel.itemCountdown(getAgendaTime());
+    }
+
+    function getAgendaTime() {
+        if (_agendaSec <= 9 && _agendaSec !== "00") {
+            _agendaSec = "0" + _agendaSec;
+        }
+        return (_agendaMin <= 9 ? "0" + _agendaMin : _agendaMin) + ":" + _agendaSec;
     }
 
     function countUp() {
@@ -145,33 +163,33 @@
         viewModel.itemTitle(_sampleAgenda.agenda[1].title);
         var totalCount = _sampleAgenda.agenda.length;
 
+
+        _agendaSec = 0;
+        _agendaMin = _sampleAgenda.agenda[0].duration;
+
+        setInterval(agendaCountdown, _interval);
+
         for (var i = 0; i < totalCount; i++) {
             var nextTimeout = 0;
 
-            var _itemDuration = _sampleAgenda.agenda[i].duration;
-            _itemDuration = _itemDuration * (1000 * 60);
-
+            var _itemDuration = convertMinutesToMillSeconds(_sampleAgenda.agenda[i].duration);
             nextTimeout = nextTimeout + _itemDuration;
 
             if (i < totalCount) {
+                //Sets the agenda title......
                 setTimeout(updateModel(i), nextTimeout);
             }
         }
-        
-        /*
-            need a timer that we can pass in the duration in minutes..
-        */
+    }
 
-        //Now start the clock counting down
-        //viewModel.itemCountdown(_sampleAgenda.agenda[nextItem].duration);
-        //TODO need to set the clock here too... for the countdown.
+    function convertMinutesToMillSeconds( minutes ) {
+        return minutes * (1000 * 60);
     }
 
     function updateModel ( index ) {
         return function () {
             viewModel.itemTitle(_sampleAgenda.agenda[index + 1].title);
-
-            //resetTimer with new duration
+            _agendaMin = _sampleAgenda.agenda[index].duration;
         }
     }
 
