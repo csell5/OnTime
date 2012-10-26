@@ -66,6 +66,7 @@
     <Content Include="js\knockout-2.1.0.js" />
     <Content Include="js\moment.min.js" />
     <Content Include="js\remaining.js" />
+    <Content Include="js\sampleSession.js" />
     <None Include="SpeakerBuddy_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

@@ -5,13 +5,28 @@
 
     WinJS.Binding.optimizeBindingReferences = true;
 
+    //Windows
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
     var utils = WinJS.Utilities;
     var animation = WinJS.UI.Animation;
 
+    var _sampleAgenda = sampleSession.getSample();
+
+    //Timers
+    var _duration, _min, _sec, _countdownTimer, _countUpTimer, _interval = 1000;
+
+    //Displays
+    var _dispRequest;
+
+    //elements
+    var _play, _countdownTimer;
+
+    //view model, what else
     var viewModel = {
-        countdown: ko.observable()
+        countdown: ko.observable(),
+        itemTitle: ko.observable(),
+        itemCountdown: ko.observable()
     };
 
     app.onactivated = function (args) {
@@ -36,15 +51,6 @@
         // args.setPromise().
     };
 
-    //Timers
-    var _duration, _min, _sec, _countdownTimer, _countUpTimer, _interval = 1000;
-
-    //Displays
-    var _dispRequest;
-
-    //elements
-    var _play, _countdownTimer;
-        
     function _getTime() {
         if (_sec <= 9 && _sec !== "00") {
             _sec = "0" + _sec;
@@ -108,7 +114,7 @@
     }
 
     function startTimer () {
-        _min = 20;
+        _min = _sampleAgenda.duration;
         _sec = 0;
 
         if (_dispRequest === undefined) {
@@ -126,10 +132,47 @@
     }
 
     function startStop() {
+        
         return animation.fadeOut(_play).then(function () {
             utils.addClass(_play, "hidden");
+            queueAgendaItem(0);
             startTimer();
         });
+    }
+
+    function queueAgendaItem( ) {
+
+        viewModel.itemTitle(_sampleAgenda.agenda[1].title);
+        var totalCount = _sampleAgenda.agenda.length;
+
+        for (var i = 0; i < totalCount; i++) {
+            var nextTimeout = 0;
+
+            var _itemDuration = _sampleAgenda.agenda[i].duration;
+            _itemDuration = _itemDuration * (1000 * 60);
+
+            nextTimeout = nextTimeout + _itemDuration;
+
+            if (i < totalCount) {
+                setTimeout(updateModel(i), nextTimeout);
+            }
+        }
+        
+        /*
+            need a timer that we can pass in the duration in minutes..
+        */
+
+        //Now start the clock counting down
+        //viewModel.itemCountdown(_sampleAgenda.agenda[nextItem].duration);
+        //TODO need to set the clock here too... for the countdown.
+    }
+
+    function updateModel ( index ) {
+        return function () {
+            viewModel.itemTitle(_sampleAgenda.agenda[index + 1].title);
+
+            //resetTimer with new duration
+        }
     }
 
     app.onready = function () {

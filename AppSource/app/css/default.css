@@ -40,7 +40,7 @@ body {
 	-ms-grid-column-span: 3;
 	
     display: -ms-grid;
-    -ms-grid-columns: 75px 1fr 1fr 75px;
+    -ms-grid-columns: 75px 4fr 1fr 75px;
     -ms-grid-rows: 1fr;
 
     font-size: 100%;

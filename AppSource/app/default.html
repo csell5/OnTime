@@ -13,6 +13,7 @@
     <link href="/css/default.css" rel="stylesheet" />
     
     <script src="js/knockout-2.1.0.js"></script>
+    <script src="/js/sampleSession.js"></script>
     <script src="/js/default.js"></script>
 
 </head>
@@ -26,11 +27,11 @@
 
         <section id="next">
             <div id="topic">
-                <span id="topicTitle">Introduction</span>
+                <span id="topicTitle" data-bind="text: itemTitle"></span>
             </div>
     
             <div id="timeLeftTillNext">
-                <span data-bind="text: countdown"></span>
+                <span data-bind="text: itemCountdown"></span>
             </div>
         </section>
         
