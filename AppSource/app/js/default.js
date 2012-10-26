@@ -26,6 +26,7 @@
     var viewModel = {
         countdown: ko.observable(),
         itemTitle: ko.observable(),
+        currentItemTitle: ko.observable(),
         itemCountdown: ko.observable()
     };
 
@@ -167,7 +168,9 @@
         _agendaSec = 0;
         _agendaMin = _sampleAgenda.agenda[0].duration;
 
+        //Should this get set somewhere else...
         setInterval(agendaCountdown, _interval);
+        viewModel.currentItemTitle(_sampleAgenda.agenda[0].title);
 
         for (var i = 0; i < totalCount; i++) {
             var nextTimeout = 0;
@@ -188,6 +191,7 @@
 
     function updateModel ( index ) {
         return function () {
+            viewModel.currentItemTitle(_sampleAgenda.agenda[index].title);
             viewModel.itemTitle(_sampleAgenda.agenda[index + 1].title);
             _agendaMin = _sampleAgenda.agenda[index].duration;
         }

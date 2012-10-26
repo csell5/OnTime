@@ -27,6 +27,15 @@ body {
 	
 }
 
+#currentAgendaItem {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    
+    font-size: 50%;
+
+    opacity: .5;
+}
+
 #timeLeft {
     -ms-grid-row: 2;
     -ms-grid-column: 2;
@@ -44,6 +53,7 @@ body {
     -ms-grid-rows: 1fr;
 
     font-size: 100%;
+    opacity: .5;
 }
 
 #topic {
