@@ -25,8 +25,8 @@
     //view model, what else
     var viewModel = {
         countdown: ko.observable(),
-        itemTitle: ko.observable(),
-        currentItemTitle: ko.observable(),
+        nextItem: ko.observable(),
+        currentItem: ko.observable(),
         itemCountdown: ko.observable()
     };
 
@@ -160,23 +160,22 @@
     }
 
     function queueAgendaItem( ) {
+        viewModel.currentItem(_sampleAgenda.agenda[0].title);
+        viewModel.nextItem(_sampleAgenda.agenda[1].title);
 
-        viewModel.itemTitle(_sampleAgenda.agenda[1].title);
         var totalCount = _sampleAgenda.agenda.length;
-
 
         _agendaSec = 0;
         _agendaMin = _sampleAgenda.agenda[0].duration;
 
         //Should this get set somewhere else...
         setInterval(agendaCountdown, _interval);
-        viewModel.currentItemTitle(_sampleAgenda.agenda[0].title);
-
+        
+        var nextTimeout = 0;
         for (var i = 0; i < totalCount; i++) {
-            var nextTimeout = 0;
-
+            
             var _itemDuration = convertMinutesToMillSeconds(_sampleAgenda.agenda[i].duration);
-            nextTimeout = nextTimeout + _itemDuration;
+            nextTimeout += _itemDuration;
 
             if (i < totalCount) {
                 //Sets the agenda title......
@@ -191,9 +190,9 @@
 
     function updateModel ( index ) {
         return function () {
-            viewModel.currentItemTitle(_sampleAgenda.agenda[index].title);
-            viewModel.itemTitle(_sampleAgenda.agenda[index + 1].title);
-            _agendaMin = _sampleAgenda.agenda[index].duration;
+            viewModel.currentItem(_sampleAgenda.agenda[index + 1].title);
+            viewModel.nextItem(_sampleAgenda.agenda[index + 2].title);
+            _agendaMin = _sampleAgenda.agenda[index + 1].duration;
         }
     }
 

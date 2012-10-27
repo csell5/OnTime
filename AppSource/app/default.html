@@ -25,13 +25,13 @@
             <span id="countdownTimer" data-bind="text: countdown"></span>
         </div>
         
-        <div id="currentAgendaItem">
-            <span data-bind="text: currentItemTitle"></span>
-        </div>
-        
         <section id="next">
-            <div id="topic">
-                <span id="topicTitle" data-bind="text: itemTitle"></span>
+            <div id="topic">    
+                <span id="currentItem" 
+                    data-bind="text: currentItem"></span><br />
+                
+                <span id="nextItem" 
+                    data-bind="text: nextItem"></span>
             </div>
     
             <div id="timeLeftTillNext">
