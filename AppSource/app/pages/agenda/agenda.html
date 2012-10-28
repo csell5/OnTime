@@ -24,22 +24,29 @@
             <section role="main">
                 <div role="content">
                     <script type="text/html" id="agendaItem-Template">
-                    <div>
-                        <input type="text" id="agendaItemTitle" 
-                            data-bind="attr: { value: title }"/>
+                        <div class="agendaItem">
+                            <input id="agendaItemTitle" 
+                                class="itemTitle"
+                                type="text" 
+                                data-bind="value: title"/>
                 
-                        <input type="text" id="agendaItemDuration" 
-                            data-bind="attr: { value: duration}"/> 
-                    </div>
+                            <input id="agendaItemDuration" 
+                                class="itemDuration"
+                                type="text" 
+                                data-bind="value: duration"/> 
+                        </div>
                     </script>
         
                     <div id="agendaItems" 
                         data-bind="template: { name: 'agendaItem-Template', foreach: agendaItems }">
                     </div>
 
-                    <div>
+                    <div id="agendaItemsFooter">
                         <button id="addAgendaItem" 
                             data-bind="click: addItem">add another item</button>
+                        
+                        <span class="sessionDuration" 
+                            data-bind="text: duration()"></span>
                     </div>
                 </div>
                 

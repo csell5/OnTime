@@ -8,8 +8,32 @@
 .homepage div[role=content] {
     -ms-grid-row: 2;
     -ms-grid-column: 2;
+}
+
+#agendaItems .agendaItem{
+    margin-bottom: 5px;
+}
+
+.homepage .itemTitle {
+    width: 400px;
+}
+
+.homepage .itemDuration {
+    width: 100px;
+    margin-left: 10px;
+}
+
+.homepage div[role=content] button { 
+    width: 400px;
+    margin-top: 15px;
+}
+
+.sessionDuration {
+    margin-left: 50px;
+    font-size: 150%;
     
-    line-height: 1pt;
+    font-weight: 200;
+    
 }
 
 @media screen and (-ms-view-state: snapped) {
