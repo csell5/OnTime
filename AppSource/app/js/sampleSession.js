@@ -1,19 +1,19 @@
 ﻿(function () {
 
     var _sampleSession = {
-        duration: 60, 
+        duration: 0, 
         agenda: [
             {
                 title: "Introduction",
-                duration: "1"
+                duration: "2"
             },
             { 
                 title: "What is Windows 8",
-                duration: "2"
+                duration: "1"
             },
             {
                 title: "Simple Demo",
-                duration: "1"
+                duration: "2"
             },
             {
                 title: "What are Contracts",
@@ -28,7 +28,7 @@
                 duration: "5"
             },
             {
-                title: "Seach Dem0",
+                title: "Seach Demo",
                 duration: "10"
             },
             {

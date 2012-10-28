@@ -9,36 +9,16 @@
     <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
     <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
 
-    <link href="/css/font-awesome.css" rel="stylesheet" />
     <link href="/css/default.css" rel="stylesheet" />
-    
-    <script src="js/knockout-2.1.0.js"></script>
-    <script src="/js/sampleSession.js"></script>
     <script src="/js/default.js"></script>
+    <script src="/js/navigator.js"></script>
 
 </head>
 <body>
-    <div id="body">
-        
-        <div id="timeLeft">
-            <div id="start" class="icon-play" ></div>
-            <span id="countdownTimer" data-bind="text: countdown"></span>
-        </div>
-        
-        <section id="next">
-            <div id="topic">    
-                <span id="currentItem" 
-                    data-bind="text: currentItem"></span><br />
-                
-                <span id="nextItem" 
-                    data-bind="text: nextItem"></span>
-            </div>
-    
-            <div id="timeLeftTillNext">
-                <span data-bind="text: itemCountdown"></span>
-            </div>
-        </section>
-        
+
+    <div id="contenthost" 
+        data-win-control="Application.PageControlNavigator" 
+        data-win-options="{home: '/pages/home/home.html'}">
     </div>
 
     <div 
@@ -48,38 +28,13 @@
         data-win-options="{transient: true, autoHide: 0, sticky: false}">
 
         <button 
-            id="barOpen" 
+            id="newAgenda" 
             data-win-control="WinJS.UI.AppBarCommand"     
-            data-win-options="{label:'Open', icon:'open', tooltip:'Open existing session.'}">
+            data-win-options="{
+                label: 'New Agenda', 
+                icon: 'add', 
+                tooltip: 'Open Modify Agenda.'}">
 		</button>
-
-        <button 
-            id="barNew" 
-            data-win-control="WinJS.UI.AppBarCommand"     
-            data-win-options="{label:'New', icon:'new', tooltip:'Create a new session.'}">
-		</button>
-
-        <button 
-            data-win-control="WinJS.UI.AppBarCommand" 
-            id="barReset" 
-            data-win-options="{label:'Reset', icon:'refresh', section:'selection', tooltip:'Reset the Timer'}" 
-            disabled >
-        </button>
-
-        <button 
-            id="barStop" 
-            data-win-control="WinJS.UI.AppBarCommand" 
-            data-win-options="{label:'Cancel', icon:'clear', section:'selection', tooltip:'Cancel the Timer'}"
-            disabled>
-            
-        </button>
-
-        <button 
-            data-win-control="WinJS.UI.AppBarCommand" 
-            id="barDuration" 
-            data-win-options="{label:'Duration', icon:'clock', type:'flyout', flyout:'changeDuration', tooltip:'Change Timer Duration'}">
-
-        </button>
     </div>
 
 </body>

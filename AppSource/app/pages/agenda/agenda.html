@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Agenda</title>
+
+        <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+        <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+        <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+        <link href="/pages/agenda/agenda.css" rel="stylesheet" />
+        
+        <script src="/js/knockout-2.1.0.js"></script>
+        <script src="/pages/agenda/agenda.js"></script>
+    </head>
+    <body>
+
+        <div class="fragment homepage">
+            <header aria-label="Header content" role="banner">
+                <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+                <h1 class="titlearea win-type-ellipsis">
+                    <span class="pagetitle">Add or Modify</span>
+                </h1>
+            </header>
+            <section role="main">
+                <div role="content">
+                    <script type="text/html" id="agendaItem-Template">
+                    <div>
+                        <input type="text" id="agendaItemTitle" 
+                            data-bind="attr: { value: title }"/>
+                
+                        <input type="text" id="agendaItemDuration" 
+                            data-bind="attr: { value: duration}"/> 
+                    </div>
+                    </script>
+        
+                    <div id="agendaItems" 
+                        data-bind="template: { name: 'agendaItem-Template', foreach: agendaItems }">
+                    </div>
+
+                    <div>
+                        <button id="addAgendaItem" 
+                            data-bind="click: addItem">add another item</button>
+                    </div>
+                </div>
+                
+            </section>
+        </div>
+
+    </body>
+</html>

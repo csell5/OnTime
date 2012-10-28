@@ -1,0 +1,25 @@
+﻿.homepage section[role=main] {
+    
+    display: -ms-grid;
+    -ms-grid-columns: 120px 1fr 120px;
+    -ms-grid-rows: 20px 1fr;
+}
+
+.homepage div[role=content] {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    
+    line-height: 1pt;
+}
+
+@media screen and (-ms-view-state: snapped) {
+    .homepage section[role=main] {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: portrait) {
+    .homepage section[role=main] {
+        margin-left: 100px;
+    }
+}

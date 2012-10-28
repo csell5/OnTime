@@ -1,11 +1,6 @@
 ﻿(function () {
     "use strict";
 
-    //todo// Not sure I need this since I am using KO and not winjs binding...
-    WinJS.Binding.optimizeBindingReferences = true;
-
-    var app = WinJS.Application;
-
     function agendaViewModel() {
         var self = this;
 
@@ -17,14 +12,15 @@
         );
 
         self.addItem = function () {
-            var itemTitle; 
-            self.agendaItems.push();
+            self.agendaItems.push({ title: "title", duration: 5 });
         };
-        //BUTTON HERE?
+       
     };
 
-    app.onready = function () {
-        ko.applyBindings(new agendaViewModel());
-    }
+    WinJS.UI.Pages.define("/pages/agenda/agenda.html", {
+        ready: function (element, options) {
+            ko.applyBindings(new agendaViewModel());
+        }
+    });
 
 })();
