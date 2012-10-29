@@ -4,47 +4,63 @@
         duration: 60, 
         agenda: [
             {
-                title: "Introduction",
+                title: "Min - Introduction",
                 duration: "1"
             },
             { 
-                title: "What is Windows 8",
-                duration: "2"
-            },
-            {
-                title: "Simple Demo",
+                title: "Lwin - Warnings",
                 duration: "1"
             },
             {
-                title: "What are Contracts",
+                title: "Min - What are uCs?",
+                duration: "1"
+            },
+            {
+                title: "Lwin - Analog vs Digital",
+                duration: "2"
+            },
+            {
+                title: "Min - Transistors",
+                duration: "2"
+            },
+            {
+                title: "PWM Demo",
                 duration: "5"
             },
             {
-                title: "Contracts Demo",
-                duration: "5"
+                title: "Lwin - Infotainment ",
+                duration: "3"
             },
             {
-                title: "Implemting Search Contract",
-                duration: "5"
-            },
-            {
-                title: "Seach Dem0",
+                title: "Let's Draw",
                 duration: "10"
             },
             {
-                title: "Marketplace Opportunity",
-                duration: "5"
+                title: "Min - Warning acids",
+                duration: "1"
             },
             {
-                title: "Getting Registered",
-                duration: "5"
+                title: "Lwin - Min Things we need",
+                duration: "3"
             },
             {
-                title: "Close",
-                duration: "5"
+                title: "Expose Video",
+                duration: "3"
             },
             {
-                title: "Questions",
+                title: "Min - Introduce Chemicals",
+                duration: "1"
+            },
+            {
+                title: "Lwin - Chemical Video",
+                duration: "3"
+            },
+            {
+                title: "Min - Finishing off the board",
+                duration: "2"
+            },
+            {
+                title: "Demo Shield",
                 duration: "5"
             }
         ]
