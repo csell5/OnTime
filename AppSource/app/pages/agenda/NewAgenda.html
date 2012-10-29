@@ -3,27 +3,45 @@
     <head>
         <title>New Agenda</title>
 
+        <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+        <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+        <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+        <link href="/pages/agenda/agenda.css" />
+        
+        <script src="/js/knockout-2.1.0.js"></script>
         <script src="/pages/agenda/newAgenda.js"></script>
     </head>
     <body>
 
-        <script type="text/html" id="agendaItem-Template">
-            <div>
-                <input type="text" id="agendaItemTitle" 
-                    data-bind="attr: { value: agendaItemTitle }"/>
+        <div class="fragment homepage">
+            <header aria-label="Header content" role="banner">
+                <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+                <h1 class="titlearea win-type-ellipsis">
+                    <span class="pagetitle">Add or Modify</span>
+                </h1>
+            </header>
+            <section aria-label="Main content" role="main">
+                <script type="text/html" id="agendaItem-Template">
+                <div>
+                    <input type="text" id="agendaItemTitle" 
+                        data-bind="attr: { value: agendaItemTitle }"/>
                 
-                <input type="text" id="agendaItemDuration" 
-                    data-bind="attr: { value: agendaItemDuration }"/> 
-            </div>
-        </script>
+                    <input type="text" id="agendaItemDuration" 
+                        data-bind="attr: { value: agendaItemDuration }"/> 
+                </div>
+                </script>
         
-        <div id="agendaItems" 
-            data-bind="template: { name: 'agendaItem-Template', data: agendaItems }">
+                <div id="agendaItems" 
+                    data-bind="template: { name: 'agendaItem-Template', data: agendaItems }">
+                </div>
+
+                <div>
+                    <button id="addAgendaItem" 
+                        data-bind="click: addItem">add another item</button>
+                </div>
+            </section>
         </div>
 
-        <div>
-            <button id="addAgendaItem" 
-                data-bind="click: addAgendaItem">add to agenda</button>
-        </div>
     </body>
 </html>

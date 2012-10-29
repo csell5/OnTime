@@ -65,11 +65,16 @@
     <Content Include="css\default.css" />
     <Content Include="js\knockout-2.1.0.js" />
     <Content Include="js\moment.min.js" />
+    <Content Include="js\navigator.js" />
     <Content Include="js\remaining.js" />
     <Content Include="js\agenda.js" />
     <Content Include="js\sampleSession.js" />
-    <Content Include="pages\agenda\NewAgenda.html" />
-    <Content Include="pages\agenda\newAgenda.js" />
+    <Content Include="pages\agenda\agenda.css" />
+    <Content Include="pages\agenda\agenda.html" />
+    <Content Include="pages\agenda\agenda.js" />
+    <Content Include="pages\home\home.css" />
+    <Content Include="pages\home\home.html" />
+    <Content Include="pages\home\home.js" />
     <None Include="SpeakerBuddy_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

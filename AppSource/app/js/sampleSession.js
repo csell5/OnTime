@@ -1,7 +1,7 @@
 ﻿(function () {
 
     var _sampleSession = {
-        duration: 60, 
+        duration: 0, 
         agenda: [
             {
                 title: "Min - Introduction",
@@ -14,6 +14,14 @@
             {
                 title: "Min - What are uCs?",
                 duration: "1"
+            },
+            { 
+                title: "What is Windows 8",
+                duration: "1"
+            },
+            {
+                title: "Simple Demo",
+                duration: "2"
             },
             {
                 title: "Lwin - Analog vs Digital",

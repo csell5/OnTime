@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <title>On Time</title>
+
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="/css/font-awesome.css" rel="stylesheet" />
+    <link href="/pages/home/home.css" rel="stylesheet" />
+    
+    <script src="/js/sampleSession.js"></script>
+    <script src="/js/knockout-2.1.0.js"></script>
+
+    <script src="/pages/home/home.js"></script>
+    
+</head>
+<body>
+    <div id="body">
+        
+        <div id="timeLeft">
+            <div id="start" class="icon-play" ></div>
+            <div id="countdownTimer" data-bind="text: countdown"></div>
+        </div>
+        
+        <section id="next">
+            <div id="topic">    
+                <span id="currentItem" 
+                    data-bind="text: currentItem"></span><br />
+                
+                <span id="nextItem" 
+                    data-bind="text: nextItem"></span>
+            </div>
+    
+            <div id="timeLeftTillNext">
+                <span data-bind="text: itemCountdown"></span>
+            </div>
+        </section>
+        
+    </div>
+
+    <div 
+        id="appBar" 
+        data-win-control="WinJS.UI.AppBar" 
+        aria-label="Command Bar"
+        data-win-options="{transient: true, autoHide: 0, sticky: false}">
+
+        <button 
+            id="newAgenda" 
+            data-win-control="WinJS.UI.AppBarCommand"     
+            data-win-options="{
+                label: 'New Agenda', 
+                icon: 'add', 
+                tooltip: 'Open Modify Agenda.'}">
+		</button>
+    </div>
+</body>
+</html>

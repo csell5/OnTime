@@ -1,0 +1,96 @@
+﻿@font-face {
+  font-family: 'FontAwesome';
+  src: url('/fonts/fontawesome-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    
+    font-weight: normal;
+	    
+    font-family: "Segoe UI";
+}
+
+#body {
+	height: 100%;
+    width: 100%;
+		
+    font-size: 72pt;
+    text-transform: lowercase;
+	text-align: center;
+    
+	display: -ms-grid;
+    -ms-grid-columns: 120px 1fr 120px;
+    -ms-grid-rows: 100px 2fr 1fr 25px;
+}
+
+#timeLeft {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    
+    -ms-grid-row-span: 2;
+
+    font-size: 325%;
+}
+
+#next {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+	-ms-grid-column-span: 3;
+	
+    display: -ms-grid;
+    -ms-grid-columns: 75px 4fr 1fr 75px;
+    -ms-grid-rows: 1fr;
+
+    font-size: 100%;
+    opacity: .75;
+	
+	line-height: .85;
+}
+
+#topic {
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+
+	text-align: left;
+}
+
+#currentItem {
+    font-size: 100%;
+}
+
+#nextItem {
+    font-size: 75%;
+    opacity: .50;
+}
+
+#timeLeftTillNext {
+    -ms-grid-column: 3;
+    -ms-grid-row: 1;
+	text-align: right;
+}
+
+.redBackground {
+    color: white;
+    background-color: red;
+}
+
+.warning {
+    color: yellow;
+}
+ 
+.hidden {
+	opacity: 0;
+	display:  none;
+	position: relative;
+	z-index:  -1000;
+}
+
+[class^="icon-"] {
+	font-size: 300pt;
+	color: rgba(29, 138, 35, 0.85);
+
+}
