@@ -7,6 +7,7 @@
     var activation = Windows.ApplicationModel.Activation;
     var utils = WinJS.Utilities;
     var animation = WinJS.UI.Animation;
+    var nav = WinJS.Navigation;
 
     var _sampleAgenda = sampleSession.getSample();
 
@@ -17,7 +18,7 @@
     var _dispRequest;
 
     //elements
-    var _newAgenda, _play, _countdownTimer;
+    var _newAgenda, _appBar, _play, _countdownTimer;
 
     //view model, what else
     var viewModel = {
@@ -30,10 +31,18 @@
     function getDomElements() {
         _play = document.querySelector("#start");
         _countdownTimer = document.querySelector("#countdownTimer");
+
+        _appBar = document.querySelector('#appBar');
+        _newAgenda = document.querySelector('#newAgenda');
     }
 
     function addEventHandlers() {
         _play.addEventListener("click", startStop, false);
+
+        _newAgenda.addEventListener('click', function () {
+            _appBar.winControl.hide();
+            nav.navigate("/pages/agenda/agenda.html");
+        }, false);
     }
 
     WinJS.UI.Pages.define("/pages/home/home.html", {

@@ -10,8 +10,6 @@
     var activation = Windows.ApplicationModel.Activation;
     var nav = WinJS.Navigation;
 
-    var _newAgenda, _appBar;
-
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
@@ -44,22 +42,8 @@
         app.sessionState.history = nav.history;
     };
 
-    function getDomElements() {
-        _appBar = document.querySelector('#appBar');
-        _newAgenda = document.querySelector('#newAgenda');
-    }
-
-    function addEventHandlers() {
-        _newAgenda.addEventListener('click', function () {
-            _appBar.winControl.hide();
-            nav.navigate("/pages/agenda/agenda.html");
-        }, false);
-    }
-
     app.onready = function () {
         WinJS.Utilities.startLog();
-        getDomElements();
-        addEventHandlers();
     };
 
     //todo// global error handler...

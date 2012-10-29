@@ -15,10 +15,13 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <VisualElements DisplayName="On Time" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="SpeakerBuddy" ForegroundText="dark" BackgroundColor="#FFFFFF">
-        <DefaultTile ShowName="allLogos" WideLogo="images\widelogo.png" />
+      <VisualElements DisplayName="On Time" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="On Time" ForegroundText="dark" BackgroundColor="#FFFFFF">
+        <DefaultTile ShowName="noLogos" WideLogo="images\widelogo.png" />
         <SplashScreen Image="images\splashscreen.png" BackgroundColor="#FFFFFF" />
-
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+          <Rotation Preference="landscapeFlipped" />
+        </InitialRotationPreference>
       </VisualElements>
     </Application>
   </Applications>
