@@ -18,7 +18,7 @@
             <header aria-label="Header content" role="banner">
                 <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
                 <h1 class="titlearea win-type-ellipsis">
-                    <span class="pagetitle">Add or Modify</span>
+                    <div spellcheck="false" contenteditable="true" id="fileName" class="pagetitle">agenda.ot</div>
                 </h1>
             </header>
             <section role="main">
@@ -51,6 +51,33 @@
                 </div>
                 
             </section>
+        </div>
+
+        <div 
+            id="appBar" 
+            data-win-control="WinJS.UI.AppBar" 
+            aria-label="Command Bar"
+            data-win-options="{transient: true, autoHide: 0, sticky: false}">
+
+            <button 
+                id="openAgenda" 
+                data-win-control="WinJS.UI.AppBarCommand"     
+                data-win-options="{
+                    label: 'Open', 
+                    icon: 'open', 
+                    tooltip: 'Open Existing Agenda.',
+                    section:'selection'}">
+	        </button>
+
+            <button 
+                id="saveAgenda" 
+                data-win-control="WinJS.UI.AppBarCommand"     
+                data-win-options="{
+                    label: 'Save', 
+                    icon: 'save', 
+                    tooltip: 'Save Agenda.',
+                    section:'selection'}">
+	        </button>
         </div>
 
     </body>
