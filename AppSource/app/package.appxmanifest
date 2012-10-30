@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <VisualElements DisplayName="On Time" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="On Time" ForegroundText="dark" BackgroundColor="#ffffff">
+      <VisualElements DisplayName="On Time" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="On Time is a simple Windows 8 application striving to keep speakers “on time”. If you’re a speaker this is for you. Grab a Windows 8 machine, load in your presentation’s agenda and set it down in front of where you plan on speaking. On Time will display your overall time left, where you should be in your agenda and how much time is left until your next topic. Don’t worry, On Time has a few visual cues to make sure you’re paying attention along the way." ForegroundText="dark" BackgroundColor="#ffffff">
         <DefaultTile ShowName="noLogos" WideLogo="images\widelogo.png" />
         <SplashScreen Image="images\splashscreen.png" BackgroundColor="#ffffff" />
         <InitialRotationPreference>
@@ -23,33 +23,6 @@
           <Rotation Preference="landscapeFlipped" />
         </InitialRotationPreference>
       </VisualElements>
-      <Extensions>
-        <Extension Category="windows.fileOpenPicker">
-          <FileOpenPicker>
-            <SupportedFileTypes>
-              <FileType>.ot</FileType>
-            </SupportedFileTypes>
-          </FileOpenPicker>
-        </Extension>
-        <Extension Category="windows.fileSavePicker">
-          <FileSavePicker>
-            <SupportedFileTypes>
-              <FileType>.ot</FileType>
-            </SupportedFileTypes>
-          </FileSavePicker>
-        </Extension>
-        <Extension Category="windows.fileTypeAssociation">
-          <FileTypeAssociation Name="ot">
-            <DisplayName>On Time</DisplayName>
-            <SupportedFileTypes>
-              <FileType>.ot</FileType>
-            </SupportedFileTypes>
-          </FileTypeAssociation>
-        </Extension>
-      </Extensions>
     </Application>
   </Applications>
-  <Capabilities>
-    <Capability Name="documentsLibrary" />
-  </Capabilities>
 </Package>

@@ -21,12 +21,25 @@
     var _newAgenda, _appBar, _play, _countdownTimer;
 
     //view model, what else
+
+    var _currentViewModel;
+
+    function viewModel() {
+        var self = this;
+
+        self.countdown = ko.observable();
+        self.nextItem = ko.observable();
+        self.currentItem = ko.observable();
+        self.itemCountdown = ko.observable();
+    }
+        /*
     var viewModel = {
         countdown: ko.observable(),
         nextItem: ko.observable(),
         currentItem: ko.observable(),
         itemCountdown: ko.observable()
     };
+    */
 
     function getDomElements() {
         _play = document.querySelector("#start");
@@ -42,6 +55,7 @@
         _newAgenda.addEventListener('click', function () {
             _appBar.winControl.hide();
             nav.navigate("/pages/agenda/agenda.html");
+            resetClocks();
         }, false);
     }
 
@@ -51,6 +65,25 @@
             addEventHandlers();
         }
     });
+
+    function resetClocks() {
+        //Make sure the timers are cleared out...
+        if (_countdownTimer && _countdownTimer != 0) {
+            clearInterval(_countdownTimer);
+            _countdownTimer = 0;
+        }
+
+        if (_agendaCountdownId && _agendaCountdownId != 0) {
+            clearInterval(_agendaCountdownId)
+            _agendaCountdownId = 0;
+        }
+
+        _min = 0;
+        _sec = -1;
+        _agendaSec = -1;
+        _agendaMin = 0;
+
+    }
 
     function _getTime() {
         if (_sec <= 9 && _sec !== "00") {
@@ -89,7 +122,7 @@
             }
         }
 
-        viewModel.countdown(_getTime());
+        _currentViewModel.countdown(_getTime());
     }
 
     function agendaCountdown() {
@@ -108,7 +141,7 @@
             }
         }
 
-        viewModel.itemCountdown(getAgendaTime());
+        _currentViewModel.itemCountdown(getAgendaTime());
     }
 
     function getAgendaTime() {
@@ -126,7 +159,7 @@
             _min = _min + 1;
         }
 
-        viewModel.countdown("-" + _getTime());
+        _currentViewModel.countdown("-" + _getTime());
 
         if (_min > 10 && _dispRequest) {
             try {
@@ -154,7 +187,6 @@
                 WinJS.log && WinJS.log("Failed: displayRequest object creation, error.", "on time", "error");
             }
         }
-
         _countdownTimer = setInterval(countdown, _interval);    
     }
 
@@ -168,7 +200,8 @@
         }
 
         //todo// load sample
-        ko.applyBindings(viewModel);
+        _currentViewModel = new viewModel();
+        ko.applyBindings(_currentViewModel);
        
 
         //Get the overall duration from the agenda
@@ -188,15 +221,14 @@
     }
 
     function queueAgendaItem( ) {
-        viewModel.currentItem(_currentAgenda.agendaItems[0].title);
-        viewModel.nextItem(_currentAgenda.agendaItems[1].title);
+        _currentViewModel.currentItem(_currentAgenda.agendaItems[0].title);
+        _currentViewModel.nextItem(_currentAgenda.agendaItems[1].title);
 
         var totalCount = _currentAgenda.agendaItems.length;
 
         _agendaSec = 0;
         _agendaMin = _currentAgenda.agendaItems[0].duration;
 
-        //Should this get set somewhere else...
         _agendaCountdownId = setInterval(agendaCountdown, _interval);
         
         var nextTimeout = 0;
@@ -223,10 +255,10 @@
             
             if (totalItems > index + 1) {
             
-                viewModel.currentItem(_currentAgenda.agendaItems[index + 1].title);
+                _currentViewModel.currentItem(_currentAgenda.agendaItems[index + 1].title);
 
                 var nextAgendaItem = index + 2 >= totalItems ? "----" : _currentAgenda.agendaItems[index + 2].title;
-                viewModel.nextItem(nextAgendaItem);
+                _currentViewModel.nextItem(nextAgendaItem);
 
                 _agendaMin = _currentAgenda.agendaItems[index + 1].duration;
             }
@@ -234,13 +266,13 @@
             else {
                 clearInterval(_agendaCountdownId);
 
-                viewModel.currentItem(" ");
-                viewModel.nextItem(" ");
+                _currentViewModel.currentItem(" ");
+                _currentViewModel.nextItem(" ");
 
                 //Reset the clock to 0;
                 _agendaMin = "0";
                 _agendaSec = "0";
-                viewModel.itemCountdown(getAgendaTime())
+                _currentViewModel.itemCountdown(getAgendaTime())
             }
         }
     }
