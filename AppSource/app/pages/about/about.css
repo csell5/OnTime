@@ -1,32 +1,25 @@
 ﻿
 #about {
     color: black;
+
+    display: -ms-grid;
+    -ms-grid-columns: 35px 1fr 35px;
+    -ms-grid-rows: 1fr 1fr 1fr;
 }
 
-.win-backbutton {
-	color: black;
-	border-color: black;
-}
-    .win-backbutton:hover {
-	    color: black;
-	    border-color: black;
-        cursor: pointer;
-    }
-
-
-.about {
-    margin-left: 120px;
+#about header {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    text-align: center;
 }
 
-.SettingsPane {
-    margin-top:36px;
-    margin-left:48px;
+#about section {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
 }
 
-.SettingsTitle {
-    margin-left: 36px;
-}
-
-.SettingsContent {
-     margin-top: 24px;
+#about footer {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
 }
