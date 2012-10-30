@@ -28,3 +28,7 @@ errors.sdf
 
 reset_webconfig.bat
 Set_webconfig_to_local.bat
+
+#store files
+*.pfx
+Package.StoreAssociation.xml
