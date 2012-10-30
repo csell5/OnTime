@@ -10,7 +10,6 @@ body {
     width: 100%;
     
     font-weight: normal;
-	    
     font-family: "Segoe UI";
 }
 
@@ -93,4 +92,69 @@ body {
 	font-size: 300pt;
 	color: rgba(29, 138, 35, 0.85);
 
+}
+
+
+
+@media screen and (-ms-view-state: snapped) {
+
+    #body {
+        display: -ms-grid;
+        -ms-grid-columns: 10px 1fr 10px;
+        -ms-grid-rows: 120px 2fr 1fr 120px;
+
+        font-size: 24pt;
+    }
+
+    #timeLeft {
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+    
+        -ms-grid-row-span: 2;
+
+        font-size: 325%;
+    }
+
+    #next {
+
+        -ms-grid-row: 3;
+        -ms-grid-column: 2;
+	   
+        display: -ms-grid;
+        -ms-grid-columns: 1fr;
+        -ms-grid-rows: 1fr 1fr 1fr;
+        
+        font-size: 100%;
+    }
+
+    #topic {
+        -ms-grid-column: 1;
+        -ms-grid-row: 1;
+
+	    text-align: center;
+    }
+
+    #currentItem {
+        -ms-grid-column: 1;
+        -ms-grid-row: 1;
+
+        font-size: 100%;
+    }
+
+    #nextItem {
+        -ms-grid-column: 1;
+        -ms-grid-row: 2;
+        font-size: 75%;
+    }
+
+    #timeLeftTillNext {
+        -ms-grid-column: 1;
+        -ms-grid-row: 3;
+	    text-align: center;
+    }
+
+
+    [class^="icon-"] {
+        font-size: 150pt;
+    }
 }

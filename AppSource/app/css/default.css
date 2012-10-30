@@ -61,13 +61,3 @@
             margin-top: 68px;
         }
 }
-
-@media screen and (-ms-view-state: fullscreen-portrait) {
-    .fragment header[role=banner] {
-        -ms-grid-columns: 100px 1fr;
-    }
-
-        .fragment header[role=banner] .win-backbutton {
-            margin-left: 29px;
-        }
-}
