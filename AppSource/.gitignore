@@ -32,3 +32,4 @@ Set_webconfig_to_local.bat
 #store files
 *.pfx
 Package.StoreAssociation.xml
+AppPackages
