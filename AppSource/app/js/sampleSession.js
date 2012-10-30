@@ -1,13 +1,13 @@
 ﻿(function () {
 
     var _sampleSession = {
-        duration: 0, 
+        duration: 0,
         agendaItems: [
             {
                 title: "countdown until start",
                 duration: "1"
             },
-            { 
+            {
                 title: "What is On Time",
                 duration: "1"
             },
@@ -47,7 +47,7 @@
         ]
     };
 
-    function getSample () {
+    function getSample() {
         return _sampleSession;
     }
 
