@@ -2,50 +2,47 @@
 
     var _sampleSession = {
         duration: 0, 
-        agenda: [
+        agendaItems: [
             {
-                title: "Introduction",
-                duration: "2"
+                title: "countdown until start",
+                duration: "1"
             },
             { 
-                title: "What is Windows 8",
+                title: "What is On Time",
                 duration: "1"
             },
             {
-                title: "Simple Demo",
+                title: "A Speaker's Monitor",
+                duration: "1"
+            },
+            {
+                title: "Overall Countdown",
+                duration: "1"
+            },
+
+            {
+                title: "Agenda Item Countdown",
+                duration: "1"
+            },
+
+            {
+                title: "Visual Warnings",
                 duration: "2"
             },
+
             {
-                title: "What are Contracts",
-                duration: "5"
+                title: "Save your agenda",
+                duration: "1"
             },
+
             {
-                title: "Contracts Demo",
-                duration: "5"
+                title: "Thank You for Trying",
+                duration: "1"
             },
+
             {
-                title: "Implemting Search Contract",
-                duration: "5"
-            },
-            {
-                title: "Seach Demo",
-                duration: "10"
-            },
-            {
-                title: "Marketplace Opportunity",
-                duration: "5"
-            },
-            {
-                title: "Getting Registered",
-                duration: "5"
-            },
-            {
-                title: "Close",
-                duration: "5"
-            },
-            {
-                title: "Questions",
-                duration: "5"
+                title: "Tell Your Friends",
+                duration: "2"
             }
         ]
     };

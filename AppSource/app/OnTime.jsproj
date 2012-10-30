@@ -48,6 +48,7 @@
     <TargetPlatformVersion>8.0</TargetPlatformVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <PackageCertificateKeyFile>SpeakerBuddy_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
@@ -64,11 +65,10 @@
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
     <Content Include="js\knockout-2.1.0.js" />
-    <Content Include="js\moment.min.js" />
     <Content Include="js\navigator.js" />
-    <Content Include="js\remaining.js" />
-    <Content Include="js\agenda.js" />
     <Content Include="js\sampleSession.js" />
+    <Content Include="pages\about\about.css" />
+    <Content Include="pages\about\about.html" />
     <Content Include="pages\agenda\agenda.css" />
     <Content Include="pages\agenda\agenda.html" />
     <Content Include="pages\agenda\agenda.js" />

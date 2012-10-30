@@ -1,19 +1,26 @@
 ﻿(function () {
     "use strict";
 
-    var _save, _open, _file, _fileName;
-
+    var _save, _open, _file, _fileName, _backButton;
     var _viewModel;
+     
+    var app = WinJS.Application;
 
     function getDomElements() {
         _save = document.querySelector('#saveAgenda');
         _open = document.querySelector('#openAgenda');
         _fileName = document.querySelector('#fileName');
+        _backButton = document.querySelector(".win-backbutton");
     }
 
     function loadEventHandlers() {
         _save.addEventListener("click", saveAgendaHandler, false);
         _open.addEventListener("click", openAgendaHandler, false);
+        _backButton.addEventListener("click", backButtonHandler, false);
+    }
+
+    function backButtonHandler() {
+        updateSessionState();
     }
 
     function saveAgendaHandler() {
@@ -34,7 +41,7 @@
                     save(filePicked);
                     _file = filePicked;
                 } else {
-                    //error....
+                    WinJS.log && WinJS.log("File picker error.", "on time", "error");
                 }
             });
         } else {
@@ -48,6 +55,8 @@
 
         Windows.Storage.FileIO.writeTextAsync(file, fileContents).done(function (e) {
             _fileName.textContent = _file.name;
+
+            updateSessionState();
         });
     }
 
@@ -72,13 +81,20 @@
             var parsedAgenda = JSON.parse(fileContent);
 
             //todo// not sure why I can't just overlay one..
+
             //manually create the agenda... 
             _viewModel.agendaItems.removeAll();
 
             for (var i = 0; i < parsedAgenda.agendaItems.length; i++) {
                 _viewModel.agendaItems.push(new agendaItem(parsedAgenda.agendaItems[i].title, parsedAgenda.agendaItems[i].duration));
             }
+
+            updateSessionState();
         });
+    }
+
+    function updateSessionState() {
+        app.sessionState.agenda = ko.toJS(_viewModel);
     }
 
     function agendaItem(title, duration) {
@@ -93,7 +109,8 @@
 
         self.agendaItems = ko.observableArray(
             [
-                new agendaItem("introduction", 5)
+                new agendaItem("Countdown Until Start", 5),
+                new agendaItem("Introduction", 5)
             ]
         );
 
@@ -111,7 +128,7 @@
         }, self);
 
     };
-
+    
     WinJS.UI.Pages.define("/pages/agenda/agenda.html", {
         ready: function (element, options) {
 

@@ -9,7 +9,7 @@
     var animation = WinJS.UI.Animation;
     var nav = WinJS.Navigation;
 
-    var _sampleAgenda = sampleSession.getSample();
+    var _currentAgenda;
 
     //Timers
     var _duration, _min, _sec, _agendaSec, _agendaMin, _countdownTimer, _countUpTimer, _agendaCountdownId, _interval = 1000;
@@ -49,11 +49,8 @@
         ready: function (element, options) {
             getDomElements();
             addEventHandlers();
-
-            ko.applyBindings(viewModel);
         }
     });
-
 
     function _getTime() {
         if (_sec <= 9 && _sec !== "00") {
@@ -144,7 +141,7 @@
     }
 
     function startTimer () {
-        _min = _sampleAgenda.duration;
+        _min = _currentAgenda.duration;
         _sec = 0;
 
         if (_dispRequest === undefined) {
@@ -162,14 +159,25 @@
     }
 
     function startStop() {
-        
-        //Get the overall duration from the agenda
-        var sessionDuration = 0;
-        for (var i = 0; i < _sampleAgenda.agenda.length; i++) {
-            sessionDuration += parseInt(_sampleAgenda.agenda[i].duration);
+
+        if (app.sessionState.agenda) {
+            _currentAgenda = app.sessionState.agenda;
+        }
+        else {
+            _currentAgenda = sampleSession.getSample();
         }
 
-        _sampleAgenda.duration = sessionDuration;
+        //todo// load sample
+        ko.applyBindings(viewModel);
+       
+
+        //Get the overall duration from the agenda
+        var sessionDuration = 0;
+        for (var i = 0; i < _currentAgenda.agendaItems.length; i++) {
+            sessionDuration += parseInt(_currentAgenda.agendaItems[i].duration);
+        }
+
+        _currentAgenda.duration = sessionDuration;
 
         //kick it off.
         return animation.fadeOut(_play).then(function () {
@@ -180,13 +188,13 @@
     }
 
     function queueAgendaItem( ) {
-        viewModel.currentItem(_sampleAgenda.agenda[0].title);
-        viewModel.nextItem(_sampleAgenda.agenda[1].title);
+        viewModel.currentItem(_currentAgenda.agendaItems[0].title);
+        viewModel.nextItem(_currentAgenda.agendaItems[1].title);
 
-        var totalCount = _sampleAgenda.agenda.length;
+        var totalCount = _currentAgenda.agendaItems.length;
 
         _agendaSec = 0;
-        _agendaMin = _sampleAgenda.agenda[0].duration;
+        _agendaMin = _currentAgenda.agendaItems[0].duration;
 
         //Should this get set somewhere else...
         _agendaCountdownId = setInterval(agendaCountdown, _interval);
@@ -194,7 +202,7 @@
         var nextTimeout = 0;
         for (var i = 0; i < totalCount; i++) {
             
-            var _itemDuration = convertMinutesToMillSeconds(_sampleAgenda.agenda[i].duration);
+            var _itemDuration = convertMinutesToMillSeconds(_currentAgenda.agendaItems[i].duration);
             nextTimeout += _itemDuration;
 
             if (i < totalCount) {
@@ -211,16 +219,16 @@
     function updateModel ( index ) {
         return function () {
 
-            var totalItems = _sampleAgenda.agenda.length;
+            var totalItems = _currentAgenda.agendaItems.length;
             
             if (totalItems > index + 1) {
             
-                viewModel.currentItem(_sampleAgenda.agenda[index + 1].title);
+                viewModel.currentItem(_currentAgenda.agendaItems[index + 1].title);
 
-                var nextAgendaItem = index + 2 >= totalItems ? "----" : _sampleAgenda.agenda[index + 2].title;
+                var nextAgendaItem = index + 2 >= totalItems ? "----" : _currentAgenda.agendaItems[index + 2].title;
                 viewModel.nextItem(nextAgendaItem);
 
-                _agendaMin = _sampleAgenda.agenda[index + 1].duration;
+                _agendaMin = _currentAgenda.agendaItems[index + 1].duration;
             }
 
             else {

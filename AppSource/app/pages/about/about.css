@@ -1,0 +1,32 @@
+﻿
+#about {
+    color: black;
+}
+
+.win-backbutton {
+	color: black;
+	border-color: black;
+}
+    .win-backbutton:hover {
+	    color: black;
+	    border-color: black;
+        cursor: pointer;
+    }
+
+
+.about {
+    margin-left: 120px;
+}
+
+.SettingsPane {
+    margin-top:36px;
+    margin-left:48px;
+}
+
+.SettingsTitle {
+    margin-left: 36px;
+}
+
+.SettingsContent {
+     margin-top: 24px;
+}
