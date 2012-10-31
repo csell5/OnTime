@@ -47,8 +47,9 @@
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <TargetPlatformVersion>8.0</TargetPlatformVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageCertificateKeyFile>SpeakerBuddy_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>OnTime_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <PackageCertificateThumbprint>A7EAB63FDE7E40D7CAF381C7BDBF7330EDB38BE0</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
@@ -67,6 +68,9 @@
     <Content Include="js\knockout-2.1.0.js" />
     <Content Include="js\navigator.js" />
     <Content Include="js\sampleSession.js" />
+    <None Include="Package.StoreAssociation.xml" />
+    <None Include="OnTime_TemporaryKey.pfx" />
+    <None Include="OnTime_StoreKey.pfx" />
     <Content Include="pages\about\about.css" />
     <Content Include="pages\about\about.html" />
     <Content Include="pages\agenda\agenda.css" />
@@ -75,7 +79,6 @@
     <Content Include="pages\home\home.css" />
     <Content Include="pages\home\home.html" />
     <Content Include="pages\home\home.js" />
-    <None Include="SpeakerBuddy_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />

@@ -56,11 +56,14 @@
         WinJS.UI.SettingsFlyout.populateSettings(e);
     };
 
-    app.onready = function () {
-        
-    };
-
-    //todo// global error handler...
+    app.onerror = function (e) {
+        if (e) {
+            WinJS.log && WinJS.log("Global Error: " + e.detail.message, "on time", "error");
+        }
+        else {
+            WinJS.log && WinJS.log("Global Error", "on time", "error");
+        }
+    }
 
     app.start();
 
