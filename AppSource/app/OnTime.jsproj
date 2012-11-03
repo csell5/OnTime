@@ -68,6 +68,7 @@
     <Content Include="js\knockout-2.1.0.js" />
     <Content Include="js\navigator.js" />
     <Content Include="js\sampleSession.js" />
+    <Content Include="pages\releases\changeLog.txt" />
     <None Include="Package.StoreAssociation.xml" />
     <None Include="OnTime_TemporaryKey.pfx" />
     <None Include="OnTime_StoreKey.pfx" />
