@@ -114,8 +114,14 @@
             ]
         );
 
+        /* add the observable array */
         self.addItem = function () {
-            return self.agendaItems.push(new agendaItem("title", 5));
+            return self.agendaItems.push(new agendaItem("title", 0));
+        };
+
+        /* remove from the observable array */
+        self.removeItem = function (foo) {
+            self.agendaItems.remove(foo);
         };
 
         self.duration = ko.computed(function () {

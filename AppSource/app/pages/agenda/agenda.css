@@ -1,49 +1,82 @@
 ﻿.homepage section[role=main] {
-    
-    display: -ms-grid;
-    -ms-grid-columns: 120px 1fr 120px;
-    -ms-grid-rows: 20px 1fr;
+	
+	display: -ms-grid;
+	-ms-grid-columns: 120px 1fr 120px;
+	-ms-grid-rows: 20px 1fr;
 }
 
 .homepage div[role=content] {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2;
+	-ms-grid-row: 2;
+	-ms-grid-column: 2;
 }
 
 #agendaItems .agendaItem{
-    margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 .homepage .itemTitle {
-    width: 400px;
+	width: 400px;
 }
 
 .homepage .itemDuration {
-    width: 100px;
-    margin-left: 10px;
+	width: 100px;
+	margin-left: 10px;
 }
 
 .homepage div[role=content] button { 
-    width: 400px;
-    margin-top: 15px;
+	width: 400px;
+	margin-top: 15px;
 }
 
 .sessionDuration {
-    margin-left: 50px;
-    font-size: 150%;
-    
-    font-weight: 200;
-    
+	margin-left: 50px;
+	font-size: 150%;
+	
+	font-weight: 200;
+	
+}
+
+[class^="icon-remove"] {
+	font-size: 20pt;
+	color: rgb(138, 2, 2);
+	
+	padding: 0px;
+	margin: 0;
+
+	margin-left: 10px;
+
+	vertical-align: bottom;
 }
 
 @media screen and (-ms-view-state: snapped) {
-    .homepage section[role=main] {
-        margin-left: 20px;
+	.homepage section[role=main] {
+		margin-left: 20px;
+    	-ms-grid-columns: 20px 1fr 20px;
+	}
+
+    .homepage .itemTitle {
+    	width: 250px;
+        margin-top: 20px;
+    }
+
+    .homepage .itemDuration {
+	    width: 100px;
+        margin: 0;
+    }
+
+    .homepage div[role=content] button { 
+	    width: 200px;
+	    
+    }
+
+    .sessionDuration {
+        margin: 0px;
+        margin-left: 10px;
     }
 }
 
 @media screen and (-ms-view-state: portrait) {
-    .homepage section[role=main] {
-        margin-left: 100px;
-    }
+	.homepage section[role=main] {
+		margin-left: 100px;
+	}
 }

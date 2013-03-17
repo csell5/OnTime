@@ -31,6 +31,8 @@
         self.nextItem = ko.observable();
         self.currentItem = ko.observable();
         self.itemCountdown = ko.observable();
+
+
     }
         /*
     var viewModel = {
