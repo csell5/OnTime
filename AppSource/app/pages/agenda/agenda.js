@@ -102,6 +102,12 @@
 
         self.title = ko.observable(title);
         self.duration = ko.observable(duration);
+
+        self.validateDuration = function validateNum() {
+            if (self.duration() == "" || self.duration() == undefined) {
+                self.duration(0);
+            }
+        };
     }
 
     function agendaViewModel() {
@@ -116,7 +122,7 @@
 
         /* add the observable array */
         self.addItem = function () {
-            return self.agendaItems.push(new agendaItem("title", 0));
+            return self.agendaItems.push(new agendaItem());
         };
 
         /* remove from the observable array */

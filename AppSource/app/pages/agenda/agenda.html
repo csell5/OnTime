@@ -1,81 +1,87 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <title>New Agenda</title>
+	<head>
+		<title>New Agenda</title>
 
-        <link href="/pages/agenda/agenda.css" rel="stylesheet" />
-        <script src="/pages/agenda/agenda.js"></script>
-    
-    </head>
-    <body>
+		<link href="/pages/agenda/agenda.css" rel="stylesheet" />
+		<script src="/pages/agenda/agenda.js"></script>
+	
+	</head>
+	<body>
 
-        <div class="fragment homepage">
-            <header aria-label="Header content" role="banner">
-                <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
-                <h1 class="titlearea win-type-ellipsis">
-                    <div spellcheck="false" contenteditable="true" id="fileName" class="pagetitle">agenda.ot</div>
-                </h1>
-            </header>
-            <section role="main">
-                <div role="content">
-                    <script type="text/html" id="agendaItem-Template">
-                        <div class="agendaItem">
-                            <input id="agendaItemTitle" 
-                                class="itemTitle"
-                                type="text" 
-                                data-bind="value: title"/>
-                
-                            <input id="agendaItemDuration" 
-                                class="itemDuration"
-                                type="number" 
-                                data-bind="value: duration"/> 
-                            
-                           <div class="icon-remove" data-bind='click: $root.removeItem'></div>
-                        </div>
-                    </script>
-        
-                    <div id="agendaItems" 
-                        data-bind="template: { name: 'agendaItem-Template', foreach: agendaItems }">
-                    </div>
+		<div class="fragment homepage">
+			<header aria-label="Header content" role="banner">
+				<button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+				<h1 class="titlearea win-type-ellipsis">
+					<div spellcheck="false" contenteditable="true" id="fileName" class="pagetitle">agenda.ot</div>
+				</h1>
+			</header>
+			<section role="main">
+				<div role="content">
+					<script type="text/html" id="agendaItem-Template">
+						<div class="agendaItem">
+							
+							<input id="agendaItemTitle" 
+								class="itemTitle"
+								type="text" 
+								placeholder="title"
+								required="true"
+								data-bind="value: title"/>
+				
+							<input id="agendaItemDuration" 
+								class="itemDuration"
+								type="number" 
+								placeholder="5"
+								required="true"
+								data-bind="value: duration, event: { blur: validateDuration }"/> 
+							
+							<div class="icon-remove" data-bind='click: $root.removeItem'></div>
+							
+						</div>
+					</script>
+		
+					<div id="agendaItems" 
+						data-bind="template: { name: 'agendaItem-Template', foreach: agendaItems }">
+					</div>
 
-                    <div id="agendaItemsFooter">
-                        <button id="addAgendaItem" 
-                            data-bind="click: addItem">add another item</button>
-                        
-                        <span class="sessionDuration" 
-                            data-bind="text: duration()"></span>
-                    </div>
-                </div>
-                
-            </section>
-        </div>
+					<div id="agendaItemsFooter">
+						<button id="addAgendaItem" 
+							data-bind="click: addItem">add another item</button>
+						
+						<span class="sessionDuration" 
+							data-bind="text: duration()"></span>
+					</div>
+				</div>
+				
+			</section>
+		</div>
 
-        <div 
-            id="appBar" class="appBar"
-            data-win-control="WinJS.UI.AppBar" 
-            aria-label="Command Bar"
-            data-win-options="{transient: true, autoHide: 0, sticky: false}">
+		<div 
+			id="appBar" class="appBar"
+			data-win-control="WinJS.UI.AppBar" 
+			aria-label="Command Bar"
+			data-win-options="{transient: true, autoHide: 0, sticky: false}">
 
-            <button 
-                id="openAgenda" 
-                data-win-control="WinJS.UI.AppBarCommand"     
-                data-win-options="{
-                    label: 'Open', 
-                    icon: 'openfile', 
-                    tooltip: 'Open Existing Agenda.',
-                    section:'selection'}">
-	        </button>
+			<button 
+				id="openAgenda" 
+				data-win-control="WinJS.UI.AppBarCommand"     
+				data-win-options="{
+					label: 'Open', 
+					icon: 'openfile', 
+					tooltip: 'Open Existing Agenda.',
+					section:'selection'}">
+			</button>
 
-            <button 
-                id="saveAgenda" 
-                data-win-control="WinJS.UI.AppBarCommand"     
-                data-win-options="{
-                    label: 'Save', 
-                    icon: 'save', 
-                    tooltip: 'Save Agenda.',
-                    section:'selection'}">
-	        </button>
-        </div>
+			<button 
+				id="saveAgenda" 
+				data-win-control="WinJS.UI.AppBarCommand"     
+				data-win-options="{
+					label: 'Save', 
+					icon: 'save', 
+					tooltip: 'Save Agenda.',
+					section:'selection'}">
+			</button>
+		</div>
 
-    </body>
+	</body>
 </html>
